@@ -13,6 +13,7 @@
 #include "main.h"
 #include "display7seg.h"
 #include "fsm_automatic.h"
+#include "fsm_mannual.h"
 
 #define INIT 		1
 #define AUTO_RED 	2
@@ -21,5 +22,14 @@
 
 extern int status1;
 extern int status2;
+extern int mode;
+extern int timer_red;
+extern int timer_yellow;
+extern int timer_green;
+
+extern int count;
+
+extern int countdown1;
+extern int countdown2;
 
 #endif /* INC_GLOBAL_H_ */

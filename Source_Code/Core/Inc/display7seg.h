@@ -10,6 +10,10 @@
 
 #define EN0	0
 #define EN1	1
-void display7SEG(int num);
+
+void display7SEG1(int num);
+void display7SEG2(int num);
+void display_7SEG_automatic();
+void display_7SEG_manual();
 
 #endif /* INC_DISPLAY7SEG_H_ */
