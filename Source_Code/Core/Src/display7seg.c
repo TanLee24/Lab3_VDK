@@ -1,0 +1,142 @@
+/*
+ * display7seg.c
+ *
+ *  Created on: Oct 16, 2025
+ *      Author: LENOVO
+ */
+
+#include "global.h"
+
+int enable7SEG = EN0;
+
+void display7SEG(int num)
+{
+    switch (num)
+    {
+        case 0:
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, RESET); // a on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, RESET); // b on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, RESET); // c on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, RESET); // d on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, RESET); // e on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, RESET); // f on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, SET);   // g off
+            break;
+        case 1:
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, SET);   // a off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, RESET); // b on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, RESET); // c on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, SET);   // d off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, SET);   // e off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, SET);   // f off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, SET);   // g off
+            break;
+        case 2:
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, RESET); // a on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, RESET); // b on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, SET);   // c off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, RESET); // d on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, RESET); // e on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, SET);   // f off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, RESET); // g on
+            break;
+        case 3:
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, RESET); // a on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, RESET); // b on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, RESET); // c on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, RESET); // d on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, SET);   // e off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, SET);   // f off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, RESET); // g on
+            break;
+        case 4:
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, SET);   // a off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, RESET); // b on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, RESET); // c on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, SET);   // d off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, SET);   // e off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, RESET); // f on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, RESET); // g on
+            break;
+        case 5:
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, RESET); // a on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, SET);   // b off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, RESET); // c on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, RESET); // d on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, SET);   // e off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, RESET); // f on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, RESET); // g on
+            break;
+        case 6:
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, RESET); // a on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, SET);   // b off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, RESET); // c on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, RESET); // d on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, RESET); // e on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, RESET); // f on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, RESET); // g on
+            break;
+        case 7:
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, RESET); // a on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, RESET); // b on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, RESET); // c on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, SET);   // d off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, SET);   // e off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, SET);   // f off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, SET);   // g off
+            break;
+        case 8:
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, RESET); // a on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, RESET); // b on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, RESET); // c on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, RESET); // d on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, RESET); // e on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, RESET); // f on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, RESET); // g on
+            break;
+        case 9:
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, RESET); // a on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, RESET); // b on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, RESET); // c on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, RESET); // d on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, SET);   // e off
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, RESET); // f on
+            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, RESET); // g on
+            break;
+        default:
+            // Do nothing or invalid paramters
+            break;
+    }
+}
+
+void display_7SEG_automatic()
+{
+	switch(enable7SEG)
+	{
+		case EN0:
+			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GPIO_PIN_SET);
+			display7SEG1(countdown1 / 10);
+			display7SEG2(countdown1 % 10);
+			if(isTimeExpired(3) == 1)
+			{
+				setTimer(3, 500);
+				enable7SEG = EN1;
+			}
+			break;
+		case EN1:
+
+			HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GPIO_PIN_RESET);
+			display7SEG1(countdown2 / 10);
+			display7SEG2(countdown2 % 10);
+			if(isTimeExpired(3) == 1)
+			{
+				setTimer(3, 500);
+				enable7SEG = EN0;
+			}
+			break;
+		default:
+			break;
+	}
+}
