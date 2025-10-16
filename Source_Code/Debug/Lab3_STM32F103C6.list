@@ -1881,7 +1881,7 @@ void fsm_manual_run()
  8000eda:	681b      	ldr	r3, [r3, #0]
  8000edc:	3b01      	subs	r3, #1
  8000ede:	2b03      	cmp	r3, #3
- 8000ee0:	f200 812a 	bhi.w	8001138 <fsm_manual_run+0x264>
+ 8000ee0:	f200 812b 	bhi.w	800113a <fsm_manual_run+0x266>
  8000ee4:	a201      	add	r2, pc, #4	; (adr r2, 8000eec <fsm_manual_run+0x18>)
  8000ee6:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
  8000eea:	bf00      	nop
@@ -1900,7 +1900,7 @@ void fsm_manual_run()
  8000f06:	f7ff f921 	bl	800014c <isButtonPressed>
  8000f0a:	4603      	mov	r3, r0
  8000f0c:	2b01      	cmp	r3, #1
- 8000f0e:	f040 8117 	bne.w	8001140 <fsm_manual_run+0x26c>
+ 8000f0e:	f040 8118 	bne.w	8001142 <fsm_manual_run+0x26e>
 		  {
 			setTimer(4, 50);
  8000f12:	2132      	movs	r1, #50	; 0x32
@@ -1926,7 +1926,7 @@ void fsm_manual_run()
  8000f36:	f000 fa5b 	bl	80013f0 <setTimer>
 		  }
 		  break;
- 8000f3a:	e101      	b.n	8001140 <fsm_manual_run+0x26c>
+ 8000f3a:	e102      	b.n	8001142 <fsm_manual_run+0x26e>
 	  case 2:  //red light
 		  if(isTimeExpired(4) == 1)
  8000f3c:	2004      	movs	r0, #4
@@ -1996,7 +1996,7 @@ void fsm_manual_run()
  8000fae:	f7ff f8cd 	bl	800014c <isButtonPressed>
  8000fb2:	4603      	mov	r3, r0
  8000fb4:	2b01      	cmp	r3, #1
- 8000fb6:	f040 80c5 	bne.w	8001144 <fsm_manual_run+0x270>
+ 8000fb6:	f040 80c6 	bne.w	8001146 <fsm_manual_run+0x272>
 		  {
 			  setTimer(4, 50);
  8000fba:	2132      	movs	r1, #50	; 0x32
@@ -2022,7 +2022,7 @@ void fsm_manual_run()
  8000fe0:	f000 fe17 	bl	8001c12 <HAL_GPIO_WritePin>
 		  }
 		  break;
- 8000fe4:	e0ae      	b.n	8001144 <fsm_manual_run+0x270>
+ 8000fe4:	e0af      	b.n	8001146 <fsm_manual_run+0x272>
 	  case 3:  // yellow light
 		 if(isTimeExpired(4) == 1)
  8000fe6:	2004      	movs	r0, #4
@@ -2092,7 +2092,7 @@ void fsm_manual_run()
  8001058:	f7ff f878 	bl	800014c <isButtonPressed>
  800105c:	4603      	mov	r3, r0
  800105e:	2b01      	cmp	r3, #1
- 8001060:	d172      	bne.n	8001148 <fsm_manual_run+0x274>
+ 8001060:	d173      	bne.n	800114a <fsm_manual_run+0x276>
 		 {
 			 setTimer(4, 50);
  8001062:	2132      	movs	r1, #50	; 0x32
@@ -2118,7 +2118,7 @@ void fsm_manual_run()
  8001088:	f000 fdc3 	bl	8001c12 <HAL_GPIO_WritePin>
 		 }
 		 break;
- 800108c:	e05c      	b.n	8001148 <fsm_manual_run+0x274>
+ 800108c:	e05d      	b.n	800114a <fsm_manual_run+0x276>
 	  case 4:  //green light
 		  if(isTimeExpired(4) == 1)
  800108e:	2004      	movs	r0, #4
@@ -2188,7 +2188,7 @@ void fsm_manual_run()
  8001100:	f7ff f824 	bl	800014c <isButtonPressed>
  8001104:	4603      	mov	r3, r0
  8001106:	2b01      	cmp	r3, #1
- 8001108:	d120      	bne.n	800114c <fsm_manual_run+0x278>
+ 8001108:	d121      	bne.n	800114e <fsm_manual_run+0x27a>
 		  {
 			  mode = 1;
  800110a:	4b12      	ldr	r3, [pc, #72]	; (8001154 <fsm_manual_run+0x280>)
@@ -2211,37 +2211,36 @@ void fsm_manual_run()
  8001124:	2110      	movs	r1, #16
  8001126:	480d      	ldr	r0, [pc, #52]	; (800115c <fsm_manual_run+0x288>)
  8001128:	f000 fd73 	bl	8001c12 <HAL_GPIO_WritePin>
-			  HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, SET);
+			  HAL_GPIO_WritePin(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, SET);
  800112c:	2201      	movs	r2, #1
- 800112e:	2110      	movs	r1, #16
- 8001130:	480a      	ldr	r0, [pc, #40]	; (800115c <fsm_manual_run+0x288>)
- 8001132:	f000 fd6e 	bl	8001c12 <HAL_GPIO_WritePin>
+ 800112e:	f44f 6100 	mov.w	r1, #2048	; 0x800
+ 8001132:	480a      	ldr	r0, [pc, #40]	; (800115c <fsm_manual_run+0x288>)
+ 8001134:	f000 fd6d 	bl	8001c12 <HAL_GPIO_WritePin>
 		  }
 		  break;
- 8001136:	e009      	b.n	800114c <fsm_manual_run+0x278>
+ 8001138:	e009      	b.n	800114e <fsm_manual_run+0x27a>
 	  default:
 		  mode = 1;
- 8001138:	4b06      	ldr	r3, [pc, #24]	; (8001154 <fsm_manual_run+0x280>)
- 800113a:	2201      	movs	r2, #1
- 800113c:	601a      	str	r2, [r3, #0]
+ 800113a:	4b06      	ldr	r3, [pc, #24]	; (8001154 <fsm_manual_run+0x280>)
+ 800113c:	2201      	movs	r2, #1
+ 800113e:	601a      	str	r2, [r3, #0]
 		  break;
- 800113e:	e006      	b.n	800114e <fsm_manual_run+0x27a>
+ 8001140:	e006      	b.n	8001150 <fsm_manual_run+0x27c>
 		  break;
- 8001140:	bf00      	nop
- 8001142:	e004      	b.n	800114e <fsm_manual_run+0x27a>
+ 8001142:	bf00      	nop
+ 8001144:	e004      	b.n	8001150 <fsm_manual_run+0x27c>
 		  break;
- 8001144:	bf00      	nop
- 8001146:	e002      	b.n	800114e <fsm_manual_run+0x27a>
+ 8001146:	bf00      	nop
+ 8001148:	e002      	b.n	8001150 <fsm_manual_run+0x27c>
 		 break;
- 8001148:	bf00      	nop
- 800114a:	e000      	b.n	800114e <fsm_manual_run+0x27a>
+ 800114a:	bf00      	nop
+ 800114c:	e000      	b.n	8001150 <fsm_manual_run+0x27c>
 		  break;
- 800114c:	bf00      	nop
+ 800114e:	bf00      	nop
 	}
 }
- 800114e:	bf00      	nop
- 8001150:	bd80      	pop	{r7, pc}
- 8001152:	bf00      	nop
+ 8001150:	bf00      	nop
+ 8001152:	bd80      	pop	{r7, pc}
  8001154:	20000058 	.word	0x20000058
  8001158:	200000a0 	.word	0x200000a0
  800115c:	40010800 	.word	0x40010800

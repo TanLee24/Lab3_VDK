@@ -102,7 +102,7 @@ void fsm_manual_run()
 			  status1 = INIT;
 			  status2 = INIT;
 			  HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, SET);
-			  HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, SET);
+			  HAL_GPIO_WritePin(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, SET);
 		  }
 		  break;
 	  default:
