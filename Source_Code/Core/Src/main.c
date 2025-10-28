@@ -93,7 +93,7 @@ int main(void)
   status1 = INIT;
   status2 = INIT;
   setTimer(0, 100); // Blink PA5 LED
-  setTimer(3, 50);
+  setTimer(3, 50); // Blink 7SEG and single LEDs when moding
   HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
   HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
   /* USER CODE END 2 */

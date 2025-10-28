@@ -35,15 +35,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_ranges 00000908  00000000  00000000  0002bc90  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00016f7d  00000000  00000000  0002c598  2**0
+ 16 .debug_macro  00016f81  00000000  00000000  0002c598  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000c75f  00000000  00000000  00043515  2**0
+ 17 .debug_line   0000c75f  00000000  00000000  00043519  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00082483  00000000  00000000  0004fc74  2**0
+ 18 .debug_str    00082483  00000000  00000000  0004fc78  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000d20f7  2**0
+ 19 .comment      00000053  00000000  00000000  000d20fb  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002798  00000000  00000000  000d214c  2**2
+ 20 .debug_frame  00002798  00000000  00000000  000d2150  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1374,7 +1374,7 @@ void display_7SEG_manual()
 08000b50 <fsm_automatic_run>:
  */
 
-#include "global.h"
+#include "fsm_automatic.h"
 
 void fsm_automatic_run()
 {
@@ -1890,7 +1890,7 @@ void fsm_manual_run()
  8000ef4:	08000fe7 	.word	0x08000fe7
  8000ef8:	0800108f 	.word	0x0800108f
 	{
-	  case 1:  //autorun
+	  case 1:  // Autorun
 		  fsm_automatic_run();
  8000efc:	f7ff fe28 	bl	8000b50 <fsm_automatic_run>
 		  display_7SEG_automatic();
@@ -1927,7 +1927,7 @@ void fsm_manual_run()
 		  }
 		  break;
  8000f3a:	e102      	b.n	8001142 <fsm_manual_run+0x26e>
-	  case 2:  //red light
+	  case 2:  // Red light
 		  if(isTimeExpired(4) == 1)
  8000f3c:	2004      	movs	r0, #4
  8000f3e:	f000 fa6f 	bl	8001420 <isTimeExpired>
@@ -2023,7 +2023,7 @@ void fsm_manual_run()
 		  }
 		  break;
  8000fe4:	e0af      	b.n	8001146 <fsm_manual_run+0x272>
-	  case 3:  // yellow light
+	  case 3:  // Yellow light
 		 if(isTimeExpired(4) == 1)
  8000fe6:	2004      	movs	r0, #4
  8000fe8:	f000 fa1a 	bl	8001420 <isTimeExpired>
@@ -2044,7 +2044,7 @@ void fsm_manual_run()
  8001006:	4855      	ldr	r0, [pc, #340]	; (800115c <fsm_manual_run+0x288>)
  8001008:	f000 fe1b 	bl	8001c42 <HAL_GPIO_TogglePin>
 		 }
-		 if(isButtonPressed(1) == 1)
+		 if(isButtonPressed(1) == 1) // Button 2 pressed
  800100c:	2001      	movs	r0, #1
  800100e:	f7ff f89d 	bl	800014c <isButtonPressed>
  8001012:	4603      	mov	r3, r0
@@ -2066,7 +2066,7 @@ void fsm_manual_run()
  800102c:	2200      	movs	r2, #0
  800102e:	601a      	str	r2, [r3, #0]
 		 }
-		 if(isButtonPressed(2) == 1)
+		 if(isButtonPressed(2) == 1) // Button 3 pressed
  8001030:	2002      	movs	r0, #2
  8001032:	f7ff f88b 	bl	800014c <isButtonPressed>
  8001036:	4603      	mov	r3, r0
@@ -2119,7 +2119,7 @@ void fsm_manual_run()
 		 }
 		 break;
  800108c:	e05d      	b.n	800114a <fsm_manual_run+0x276>
-	  case 4:  //green light
+	  case 4:  // Green light
 		  if(isTimeExpired(4) == 1)
  800108e:	2004      	movs	r0, #4
  8001090:	f000 f9c6 	bl	8001420 <isTimeExpired>
@@ -2140,7 +2140,7 @@ void fsm_manual_run()
  80010ae:	482b      	ldr	r0, [pc, #172]	; (800115c <fsm_manual_run+0x288>)
  80010b0:	f000 fdc7 	bl	8001c42 <HAL_GPIO_TogglePin>
 		  }
-		  if(isButtonPressed(1) == 1)
+		  if(isButtonPressed(1) == 1) // Button 2 pressed
  80010b4:	2001      	movs	r0, #1
  80010b6:	f7ff f849 	bl	800014c <isButtonPressed>
  80010ba:	4603      	mov	r3, r0
@@ -2162,7 +2162,7 @@ void fsm_manual_run()
  80010d4:	2200      	movs	r2, #0
  80010d6:	601a      	str	r2, [r3, #0]
 		  }
-		  if(isButtonPressed(2) == 1)
+		  if(isButtonPressed(2) == 1) // Button 3 pressed
  80010d8:	2002      	movs	r0, #2
  80010da:	f7ff f837 	bl	800014c <isButtonPressed>
  80010de:	4603      	mov	r3, r0
@@ -2298,7 +2298,7 @@ int main(void)
  800119a:	2164      	movs	r1, #100	; 0x64
  800119c:	2000      	movs	r0, #0
  800119e:	f000 f927 	bl	80013f0 <setTimer>
-  setTimer(3, 50);
+  setTimer(3, 50); // Blink 7SEG and single LEDs when moding
  80011a2:	2132      	movs	r1, #50	; 0x32
  80011a4:	2003      	movs	r0, #3
  80011a6:	f000 f923 	bl	80013f0 <setTimer>

@@ -5,7 +5,7 @@
  *      Author: LENOVO
  */
 
-#include "global.h"
+#include "fsm_automatic.h"
 
 void fsm_automatic_run()
 {
