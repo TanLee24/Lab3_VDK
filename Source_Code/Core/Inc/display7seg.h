@@ -16,4 +16,6 @@ void display7SEG2(int num);
 void display_7SEG_automatic();
 void display_7SEG_manual();
 
+extern int enable7SEG;
+
 #endif /* INC_DISPLAY7SEG_H_ */

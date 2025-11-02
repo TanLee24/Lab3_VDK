@@ -10,7 +10,7 @@
 
 #include "global.h"
 
-#define NUM_OF_BUTTONS 3
+#define NUM_OF_BUTTONS 4
 #define NORMAL_STATE GPIO_PIN_SET
 #define PRESSED_STATE GPIO_PIN_RESET
 

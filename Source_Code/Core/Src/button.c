@@ -7,23 +7,23 @@
 
 #include "button.h"
 
-int Timer_For_Key_Press[NUM_OF_BUTTONS] = {200, 200, 200};
-int KeyReg0[NUM_OF_BUTTONS] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
-int KeyReg1[NUM_OF_BUTTONS] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
-int KeyReg2[NUM_OF_BUTTONS] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
-int KeyReg3[NUM_OF_BUTTONS] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
+int Timer_For_Key_Press[NUM_OF_BUTTONS] = {200, 200, 200, 200};
+int KeyReg0[NUM_OF_BUTTONS] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
+int KeyReg1[NUM_OF_BUTTONS] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
+int KeyReg2[NUM_OF_BUTTONS] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
+int KeyReg3[NUM_OF_BUTTONS] = {NORMAL_STATE,NORMAL_STATE,NORMAL_STATE,NORMAL_STATE};
 
-int buttonFlag[NUM_OF_BUTTONS] = {0, 0, 0};
+int buttonFlag[NUM_OF_BUTTONS] = {0, 0, 0, 0};
 
-GPIO_TypeDef* buttonPort[NUM_OF_BUTTONS] = {Button1_GPIO_Port, Button2_GPIO_Port, Button3_GPIO_Port};
-uint16_t buttonPin[NUM_OF_BUTTONS] = {Button1_Pin, Button2_Pin, Button3_Pin};
+GPIO_TypeDef* buttonPort[NUM_OF_BUTTONS] = {Button1_GPIO_Port, Button2_GPIO_Port, Button3_GPIO_Port, Button4_GPIO_Port};
+uint16_t buttonPin[NUM_OF_BUTTONS] = {Button1_Pin, Button2_Pin, Button3_Pin, Button4_Pin};
 
 int isButtonPressed(int index)
 {
 	if (buttonFlag[index] == 1)
 	{
-		buttonFlag[index] = 0;   // reset cờ sau khi đọc
-		return 1;                  // trả về “vừa nhấn”
+		buttonFlag[index] = 0;
+		return 1;
 	}
 	return 0;
 }

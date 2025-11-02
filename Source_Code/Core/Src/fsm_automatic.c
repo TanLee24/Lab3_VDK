@@ -9,20 +9,21 @@
 
 void fsm_automatic_run()
 {
+	if (mode != 1) return;
 	switch (status1)
 	{
 		case INIT:
-			HAL_GPIO_WritePin(LED_RED1_GPIO_Port, LED_RED1_Pin, SET);
-			HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, SET);
-			HAL_GPIO_WritePin(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, SET);
+			turnOffRed1();
+			turnOffGreen1();
+			turnOffYellow1();
 			status1 = AUTO_RED;
 			countdown1 = timer_red/1000;
 			setTimer(1, 100);
 			break;
 		case AUTO_RED:
-			HAL_GPIO_WritePin(LED_RED1_GPIO_Port, LED_RED1_Pin, RESET);
-			HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, SET);
-			HAL_GPIO_WritePin(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, SET);
+			turnOnRed1();
+			turnOffGreen1();
+			turnOffYellow1();
 			if (isTimeExpired(1) == 1)
 			{
 				countdown1--;
@@ -35,9 +36,9 @@ void fsm_automatic_run()
 			}
 			break;
 		case AUTO_GREEN:
-			HAL_GPIO_WritePin(LED_RED1_GPIO_Port, LED_RED1_Pin, SET);
-			HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, RESET);
-			HAL_GPIO_WritePin(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, SET);
+			turnOffRed1();
+			turnOnGreen1();
+			turnOffYellow1();
 			if (isTimeExpired(1) == 1)
 			{
 				countdown1--;
@@ -50,9 +51,9 @@ void fsm_automatic_run()
 			}
 			break;
 		case AUTO_YELLOW:
-			HAL_GPIO_WritePin(LED_RED1_GPIO_Port, LED_RED1_Pin, SET);
-			HAL_GPIO_WritePin(LED_GREEN1_GPIO_Port, LED_GREEN1_Pin, SET);
-			HAL_GPIO_WritePin(LED_YELLOW1_GPIO_Port, LED_YELLOW1_Pin, RESET);
+			turnOffRed1();
+			turnOffGreen1();
+			turnOnYellow1();
 			if (isTimeExpired(1) == 1)
 			{
 				countdown1--;
@@ -71,17 +72,17 @@ void fsm_automatic_run()
 	switch (status2)
 		{
 			case INIT:
-				HAL_GPIO_WritePin(LED_RED2_GPIO_Port, LED_RED2_Pin, SET);
-				HAL_GPIO_WritePin(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, SET);
-				HAL_GPIO_WritePin(LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, SET);
+				turnOffRed2();
+				turnOffGreen2();
+				turnOffYellow2();
 				status2 = AUTO_GREEN;
 				countdown2 = timer_green/1000;
 				setTimer(2, 100);
 				break;
 			case AUTO_RED:
-				HAL_GPIO_WritePin(LED_RED2_GPIO_Port, LED_RED2_Pin, RESET);
-				HAL_GPIO_WritePin(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, SET);
-				HAL_GPIO_WritePin(LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, SET);
+				turnOnRed2();
+				turnOffGreen2();
+				turnOffYellow2();
 				if (isTimeExpired(2) == 1)
 				{
 					countdown2--;
@@ -94,9 +95,9 @@ void fsm_automatic_run()
 				}
 				break;
 			case AUTO_GREEN:
-				HAL_GPIO_WritePin(LED_RED2_GPIO_Port, LED_RED2_Pin, SET);
-				HAL_GPIO_WritePin(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, RESET);
-				HAL_GPIO_WritePin(LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, SET);
+				turnOffRed2();
+				turnOnGreen2();
+				turnOffYellow2();
 				if (isTimeExpired(2) == 1)
 				{
 					countdown2--;
@@ -109,9 +110,9 @@ void fsm_automatic_run()
 				}
 				break;
 			case AUTO_YELLOW:
-				HAL_GPIO_WritePin(LED_RED2_GPIO_Port, LED_RED2_Pin, SET);
-				HAL_GPIO_WritePin(LED_GREEN2_GPIO_Port, LED_GREEN2_Pin, SET);
-				HAL_GPIO_WritePin(LED_YELLOW2_GPIO_Port, LED_YELLOW2_Pin, RESET);
+				turnOffRed2();
+				turnOffGreen2();
+				turnOnYellow2();
 				if (isTimeExpired(2) == 1)
 				{
 					countdown2--;

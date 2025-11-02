@@ -16,3 +16,4 @@ int timer_green = 3000;
 int count = 0; // Variable to count the time in mode 2 3 4
 int countdown1 = 0;
 int countdown2 = 0;
+int manual_status = MANUAL_IDLE;

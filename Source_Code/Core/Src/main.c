@@ -110,8 +110,10 @@ int main(void)
 		  setTimer(0, 100);
 		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
 	  }
-//	  fsm_automatic_run();
+
+	  fsm_automatic_run();
 	  fsm_manual_run();
+	  fsm_config();
   }
   /* USER CODE END 3 */
 }
@@ -231,8 +233,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Button1_Pin Button2_Pin Button3_Pin */
-  GPIO_InitStruct.Pin = Button1_Pin|Button2_Pin|Button3_Pin;
+  /*Configure GPIO pins : Button1_Pin Button2_Pin Button3_Pin Button4_Pin */
+  GPIO_InitStruct.Pin = Button1_Pin|Button2_Pin|Button3_Pin|Button4_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);

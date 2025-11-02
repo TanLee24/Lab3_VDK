@@ -242,6 +242,14 @@ void display_7SEG_automatic()
 
 void display_7SEG_manual()
 {
+	if (mode == 5)
+	{
+		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, GPIO_PIN_SET);
+		display7SEG1(0);
+		display7SEG2(5);
+		return;
+	}
 	switch(enable7SEG)
 	{
 		case EN0:
